@@ -86,7 +86,7 @@ public class StepControl : Control
             System.Globalization.CultureInfo.CurrentCulture,
             FlowDirection.LeftToRight,
             new Typeface(FontFamily.Default, FontStyle.Normal, Annotation.IsBold ? FontWeight.Bold : FontWeight.Normal),
-            Annotation.FontSize * 0.6,
+            Annotation.TextFontSize,
             new SolidColorBrush(Color.Parse(Annotation.TextColor)));
 
         var textX = bodyOffset.X + (width - formattedText.Width) / 2;

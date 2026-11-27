@@ -34,7 +34,7 @@ namespace ShareX.ImageEditor.Core.Annotations;
 public partial class NumberAnnotation : Annotation
 {
     private const float GeometryEpsilon = 0.001f;
-    private const float TextPaddingMultiplier = 0.35f;
+    private const float TextPaddingMultiplier = 0.2f;
 
     public override AnnotationCategory Category => AnnotationCategory.Text;
     /// <summary>
@@ -94,7 +94,7 @@ public partial class NumberAnnotation : Annotation
         float baseRadius = Math.Max(12, FontSize * 0.7f);
         string displayText = GetDisplayText();
 
-        using var font = new SKFont(SKTypeface.Default, Math.Max(1, FontSize * 0.6f))
+        using var font = new SKFont(SKTypeface.Default, TextFontSize)
         {
             Embolden = IsBold
         };
@@ -102,7 +102,7 @@ public partial class NumberAnnotation : Annotation
         float textWidth = font.MeasureText(displayText);
         SKFontMetrics metrics = font.Metrics;
         float textHeight = metrics.Descent - metrics.Ascent;
-        float padding = Math.Max(6, FontSize * TextPaddingMultiplier);
+        float padding = Math.Max(4, FontSize * TextPaddingMultiplier);
         float measuredRadius = Math.Max(textWidth, textHeight) * 0.5f + padding;
 
         return Math.Max(baseRadius, measuredRadius);
@@ -118,6 +118,9 @@ public partial class NumberAnnotation : Annotation
 
     [JsonIgnore]
     public string DisplayText => GetDisplayText();
+
+    [JsonIgnore]
+    internal float TextFontSize => Math.Max(1, FontSize);
 
     public string GetDisplayText() => StepTypeFormatter.Format(Number, StepType);
 
