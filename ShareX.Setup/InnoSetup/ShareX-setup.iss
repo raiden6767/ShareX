@@ -54,6 +54,10 @@ Name: "EnableBrowserExtensionSupport"; Description: "Enable browser extension su
 Name: "DisablePrintScreenKeyForSnippingTool"; Description: "Disable Print Screen key for Snipping Tool"; GroupDescription: "Other tasks:"; Check: not IsUpdating
 
 [InstallDelete]
+; ShareX 21 and earlier bundled ExifTool. Remove its files when installing a newer version.
+Type: files; Name: "{app}\exiftool.exe"
+Type: filesandordirs; Name: "{app}\exiftool_files"
+
 ; ShareX 18 installed languages next to the executable. .NET loads those before the Languages folder, so remove them.
 Type: files; Name: "{app}\ar-YE\*.resources.dll"
 Type: files; Name: "{app}\de\*.resources.dll"
