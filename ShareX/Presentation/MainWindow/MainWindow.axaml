@@ -272,6 +272,7 @@
                         </Button>
                         <Button Classes="caption-button"
                                 AutomationProperties.Name="{x:Static res:Strings.MainWindow_AlwaysOnTop}"
+                                ToolTip.Tip="{x:Static res:Strings.MainWindow_AlwaysOnTop}"
                                 Click="OnTopmostClick"
                                 chrome:WindowDecorationProperties.ElementRole="User">
                             <Grid>
@@ -292,6 +293,7 @@
                         </Button>
                         <Button Classes="caption-button"
                                 AutomationProperties.Name="{x:Static res:Strings.MainWindow_MaximizeOrRestore}"
+                                ToolTip.Tip="{x:Static res:Strings.MainWindow_MaximizeOrRestore}"
                                 Click="OnMaximizeRestoreClick"
                                 chrome:WindowDecorationProperties.ElementRole="MaximizeButton">
                             <Grid>
